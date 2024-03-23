@@ -7,6 +7,7 @@ from .forms import ConversationMessageForm
 from .models import Conversation
 
 @login_required
+
 def new_conversation(request, item_pk):
     item = get_object_or_404(Item, pk=item_pk)
 
@@ -41,6 +42,7 @@ def new_conversation(request, item_pk):
     })
 
 @login_required
+
 def inbox(request):
     conversations = Conversation.objects.filter(members__in=[request.user.id])
 
@@ -49,6 +51,7 @@ def inbox(request):
     })
 
 @login_required
+
 def detail(request, pk):
     conversation = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
 

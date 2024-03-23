@@ -34,6 +34,7 @@ def detail(request, pk):
     })
 
 @login_required
+
 def new(request):
     if request.method == 'POST':
         form = NewItemForm(request.POST, request.FILES)
@@ -53,6 +54,7 @@ def new(request):
     })
 
 @login_required
+
 def edit(request, pk):
     item = get_object_or_404(Item, pk=pk, created_by=request.user)
 
@@ -72,6 +74,7 @@ def edit(request, pk):
     })
 
 @login_required
+
 def delete(request, pk):
     item = get_object_or_404(Item, pk=pk, created_by=request.user)
     item.delete()
